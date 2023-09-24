@@ -1,0 +1,33 @@
+
+<div class="row">
+  <div class="col-4"></div>
+  <div class="col mt-5">
+    <form [formGroup]="authorForm" (ngSubmit)="onSubmit()">
+      <div>
+        
+        <label class="form-label">
+          Name:
+          <div class="text-danger" [hidden]="!isFormSubmitted || authorForm.get('name')?.valid">
+             Name is required!
+          </div>
+          <input class="form-control" id="name" formControlName="name" />
+        </label>
+      </div>
+      <div>
+        
+        <label class="form-label">
+          <div class="text-danger" [hidden]="!isFormSubmitted || !authorForm.get('name')?.valid">
+            Year of birth required!
+          </div>
+          Year of birth:
+          <input class="form-control" id="yearOfBirth" formControlName="yearOfBirth" type="number" />
+        </label>
+      </div>
+      <div>
+        <button type="submit" class="btn btn-success">Create</button>
+      </div>
+    </form>
+
+  </div>
+  <div class="col-4"></div>
+</div>

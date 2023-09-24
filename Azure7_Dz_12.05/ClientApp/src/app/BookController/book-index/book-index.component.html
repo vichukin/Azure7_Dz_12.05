@@ -1,0 +1,31 @@
+<h3>
+  Books
+</h3>
+<a [routerLink]="['/books/create']" class="btn btn-outline-success">Create</a>
+<hr />
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Author</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of books">
+      <td>{{item.id}}</td>
+      <td>{{item.title}}</td>
+      <td>{{item.description}}</td>
+      <td>{{item.author.name}}</td>
+      <td>
+        <div class="btn-group">
+          <a class="btn btn-outline-primary" [routerLink]="['/books/',item.id]">Details</a>
+          <a class="btn btn-outline-warning" [routerLink]="['/books/edit/',item.id]">Edit</a>
+          <button (click)="deleteBook(item.id)" class="btn btn-outline-danger">Delete</button>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>

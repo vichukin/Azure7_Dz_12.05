@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="col-4"></div>
+  <div class="col-4">
+    <h2 class="text-center">Book</h2>
+    <form (ngSubmit)="onSubmit()" [formGroup]="myform">
+      <div>
+        <label class="form-label w-100">
+          Title:
+          <div class="text-danger" [hidden]="!isFormSubmit||myform.get('title')?.valid">Title is required!</div>
+          <input class="form-control w-100" formControlName="title" required/>
+        </label>
+      </div>
+      <div>
+        <label class="form-label w-100">
+          Author:
+          <div class="text-danger" [hidden]="!isFormSubmit||myform.get('authorId')?.valid">Author is required!</div>
+          <select class="form-control w-100" formControlName="authorId">
+            <option value="0">Choose author</option>
+            <option *ngFor="let item of authors" [value]="item.id">{{item.name}}</option>
+          </select>
+        </label>
+      </div>
+      <div>
+        <label class="form-label w-100">
+          Description:
+          <div class="text-danger" [hidden]="!isFormSubmit||myform.get('description')?.valid">Description is required!</div>
+          <textarea class="form-control w-100" formControlName="description" required> </textarea>
+        </label>
+      </div>
+      <div>
+        <button type="submit" class="btn btn-success w-100">Create</button>
+      </div>
+    </form>
+  </div>
+  <div class="col-4"></div>
+</div>
